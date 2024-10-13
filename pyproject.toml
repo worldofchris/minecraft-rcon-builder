@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "minecraft"
+version = "0.1.0"
+description = ""
+authors = ["chris-young-12-nhs <chris.young12@nhs.net>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+mcrcon = "^0.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
