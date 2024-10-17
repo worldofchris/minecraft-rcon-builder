@@ -1,19 +1,7 @@
 import pytest
+from unittest.mock import patch
 
-from minecraft import render_string
-
-def test_map_char_to_block():
-    chars = ['*', '#', ' ']
-
-    block_map = {
-        '*': '',
-        '#': '',
-        ' ': ''
-    }
-
-    expected = [
-        ''
-    ]
+from minecraft import render_string, render_rectangle, render_cuboid, send_command
 
 block_map = {
     '*': 'minecraft:stone',
@@ -51,3 +39,51 @@ def test_map_string_to_blocks(block_string, expected):
     """
     actual = render_string(block_string, block_map, origin)
     assert actual == expected
+
+
+def test_render_cuboid():
+
+    block_string = """
+
+
+
+   ******
+   ******
+   ******
+   ******
+   ******
+   ******
+
+
+
+---
+
+
+
+
+    ****
+    ****
+    ****
+    ****
+
+
+
+
+---
+
+
+
+
+
+     **
+     **
+
+
+
+
+
+---
+"""
+    # with patch('minecraft.render_rectangle') as mock_render_rectangle:
+    render_cuboid(block_string, block_map, origin)
+
